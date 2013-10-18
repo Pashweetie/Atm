@@ -19,9 +19,8 @@ public class Account {
 
 	// name setter
 	public void setName(String name) {
-                if (name.length() >= 1 && name.length() <= 20) {
-                        this.name = name;
-                 }
+                this.name = name;
+            
 	}
 
 	// pin getter
@@ -31,9 +30,8 @@ public class Account {
 
 	// pin setter
 	public void setPin(String pin) {
-		if (pin.length() == 4) {
-			this.pin = pin;
-		}
+         	this.pin = pin;
+
 	}
 
 	// balance getter
