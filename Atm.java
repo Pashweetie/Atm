@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class Atm {
 
 	// State
-	private Scanner input = new Scanner(System.in);
+	Scanner input = new Scanner(System.in);  //scanner for String
+        Scanner choice = new Scanner(System.in); //scanner for double and integer
 	private Account[] array = new Account[3];
         private Account loginAccount = null;
-        private boolean loginFlag = false;
+        private boolean loginFlag = false;   //checks if user is logged in or not
 
         // Constructor
         public Atm() {
@@ -34,6 +35,38 @@ public class Atm {
                 } while (!checkPin(thisPin));
 	
 	}
+
+       public static void menu(Atm atm, Scanner input, Scanner choice) {
+
+                System.out.println();
+                System.out.println("<1> Check balance");
+                System.out.println("<2> Withdraw Funds");
+                System.out.println("<3> Change Account Name");
+                System.out.println("<4> Change Account PIN");
+                System.out.println("<5> Logout");
+          
+                int selection = choice.nextInt();
+                if (selection == 1) {
+                     atm.checkBalance();
+                } else if (selection == 2) {
+                     System.out.print("Please input withdrawal amount: " );
+                     double amount = choice.nextDouble();
+                     atm.withdrawFunds(amount);
+                } else if (selection == 3) {
+                     System.out.print("Please input new account name: " );
+                     String newName = input.nextLine();
+                     atm.changeName(newName);
+                } else if (selection == 4) {
+                     System.out.print("Please input new account PIN: " );
+                     String newPin = input.nextLine();
+                     atm.changePin(newPin);
+                } else if (selection == 5) {
+                     atm.logout();
+                } else {
+                      System.out.println("Selection not avaliable. Please try again.");
+                }
+        }
+
 
         //checks if name exists
         public boolean checkName(String thisName) {
