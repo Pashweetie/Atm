@@ -19,8 +19,11 @@ public class Account {
 
 	// name setter
 	public void setName(String name) {
-                this.name = name;
-            
+                if (name.length() > 1 && name.length() < 20) {
+                     this.name = name;
+                } else {
+                     System.out.println("Account name must be between  1 and 20 characters.");
+                }            
 	}
 
 	// pin getter
@@ -30,8 +33,11 @@ public class Account {
 
 	// pin setter
 	public void setPin(String pin) {
-         	this.pin = pin;
-
+                if (pin.length() == 4) {
+         	     this.pin = pin;
+                } else {
+                     System.out.println("PIN must be 4 characters long.");
+                }
 	}
 
 	// balance getter
